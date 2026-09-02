@@ -1,0 +1,22 @@
+/* ======================================================
+ ARQUIVO: footer.css
+ CAMADA: Interface
+ MÓDULO: Rodapé
+ RESPONSABILIDADE: Exibir crédito visual da DIO.
+ O QUE ESTE ARQUIVO FAZ: Posiciona o logotipo como no design de referência.
+ IMPORTÂNCIA NO SISTEMA: Mantém a origem educacional visível.
+ OBSERVAÇÃO ARQUITETURAL: A explicação completa do contexto fica no README.
+====================================================== */
+.footer {
+  width: var(--content-width);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0 auto;
+  padding: .8rem 0 .5rem;
+}
+.footer img {
+  display: block;
+  width: 100px;
+  height: auto;
+}

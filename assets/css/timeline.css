@@ -1,0 +1,55 @@
+/* ======================================================
+ ARQUIVO: timeline.css
+ CAMADA: Interface
+ MÓDULO: Educação / Experiência
+ RESPONSABILIDADE: Listar formação e experiência prática verificável.
+ O QUE ESTE ARQUIVO FAZ: Mantém blocos compactos semelhantes aos estados abertos do Figma.
+ IMPORTÂNCIA NO SISTEMA: Preserva verdade profissional sem inventar vínculos empregatícios.
+ OBSERVAÇÃO ARQUITETURAL: O conteúdo vem do JSON local.
+====================================================== */
+.education-intro {
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: .82rem;
+  font-weight: 700;
+}
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.timeline li { padding: 0; }
+.timeline h3 {
+  margin-bottom: .25rem;
+  font-size: .95rem;
+}
+.timeline .period {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  margin-bottom: .28rem;
+  color: rgba(255,255,255,.9);
+  font-size: .72rem;
+  font-weight: 600;
+}
+.timeline .period::before { content: '▣'; font-size: .65rem; }
+.timeline .description {
+  margin: 0;
+  color: rgba(255,255,255,.9);
+  font-size: .76rem;
+  line-height: 1.45;
+}
+.experience-note {
+  margin-bottom: 1rem;
+  color: rgba(255,255,255,.88);
+  font-size: .76rem;
+}
+.experience-link,
+.portfolio-more {
+  margin: 1rem 0 0;
+  font-size: .75rem;
+  font-weight: 700;
+}

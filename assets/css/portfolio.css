@@ -1,0 +1,47 @@
+/* ======================================================
+ ARQUIVO: portfolio.css
+ CAMADA: Interface
+ MÓDULO: Portfólio
+ RESPONSABILIDADE: Listar projetos em destaque.
+ O QUE ESTE ARQUIVO FAZ: Reproduz a lista compacta do painel Portfólio do Figma.
+ IMPORTÂNCIA NO SISTEMA: Liga a apresentação às evidências públicas do GitHub.
+ OBSERVAÇÃO ARQUITETURAL: Apenas projetos selecionados são renderizados na primeira versão visual.
+====================================================== */
+.portfolio {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.project-card { min-width: 0; }
+.project-card h3 {
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+  margin-bottom: .3rem;
+  font-size: .92rem;
+}
+.project-card h3::before {
+  content: '◉';
+  flex: 0 0 auto;
+  font-size: .72rem;
+}
+.project-description {
+  margin-bottom: .35rem;
+  color: rgba(255,255,255,.92);
+  font-size: .73rem;
+  line-height: 1.4;
+}
+.project-link {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  color: rgba(255,255,255,.88);
+  font-size: .68rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.project-stack { display: none; }

@@ -1,0 +1,105 @@
+/* ======================================================
+ ARQUIVO: header.css
+ CAMADA: Interface
+ MÓDULO: Cabeçalho
+ RESPONSABILIDADE: Apresentação principal do perfil.
+ O QUE ESTE ARQUIVO FAZ: Reproduz foto circular, saudação e dados compactos do Figma.
+ IMPORTÂNCIA NO SISTEMA: Concentra a identidade profissional na primeira dobra.
+ OBSERVAÇÃO ARQUITETURAL: Dados são carregados de data/profile.json.
+====================================================== */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  gap: 1rem;
+  padding: .5rem 0 1.4rem;
+}
+
+.header::after {
+  content: '•••';
+  position: absolute;
+  top: .2rem;
+  right: .5rem;
+  color: #fff;
+  font-size: 1.2rem;
+  letter-spacing: .28rem;
+  line-height: 1;
+}
+
+.header .photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.headline { width: 100%; }
+.header .title {
+  margin: 0;
+  font-family: 'Space Grotesk', 'Open Sans', sans-serif;
+  font-size: clamp(2rem, 7vw, 2.45rem);
+  font-weight: 400;
+  line-height: 1.04;
+  text-align: center;
+}
+.header .title span { font-weight: 400; }
+
+.information {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  font-size: .96rem;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+  margin: .22rem 0;
+  overflow-wrap: anywhere;
+}
+
+.info-item::before {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 1rem;
+  width: 1rem;
+  min-height: 1rem;
+  color: #7376d4;
+  font-size: .66rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.info-item.job::before { content: '◆'; }
+.info-item.github::before { content: 'GH'; font-size: .55rem; }
+.info-item.linkedin::before { content: 'in'; font-size: .62rem; }
+
+@media (min-width: 768px) {
+  .header {
+    width: var(--content-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(210px, .85fr) minmax(260px, 1fr);
+    grid-template-areas:
+      'photo headline'
+      'photo information';
+    align-items: center;
+    column-gap: 2.4rem;
+    row-gap: .4rem;
+    padding: 1rem 0 2rem;
+  }
+
+  .header .photo { grid-area: photo; margin: 0 auto; }
+  .headline { grid-area: headline; align-self: end; }
+  .header .title { text-align: left; max-width: 270px; }
+  .information { grid-area: information; align-self: start; }
+}
+
+@media (max-width: 767px) {
+  .headline { text-align: center; }
+  .information { max-width: 320px; margin: 0 auto; }
+  .header::after { right: .25rem; }
+}

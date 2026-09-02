@@ -1,0 +1,93 @@
+/* ======================================================
+ ARQUIVO: skills.css
+ CAMADA: Interface
+ MÓDULO: Skills e Idiomas
+ RESPONSABILIDADE: Apresentar competências em duas colunas.
+ O QUE ESTE ARQUIVO FAZ: Exibe tecnologias com ícones visuais e conhecimentos em lista.
+ IMPORTÂNCIA NO SISTEMA: Mostra a stack real do perfil com leitura visual próxima ao Figma.
+ OBSERVAÇÃO ARQUITETURAL: Os ícones são assets SVG locais em assets/img/skills/.
+====================================================== */
+.skills {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.skills h3 {
+  margin-bottom: .9rem;
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(54px, 1fr));
+  gap: 1rem .75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skill-grid li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: .45rem;
+  min-width: 0;
+  text-align: center;
+  font-size: .66rem;
+}
+
+.tech-icon-wrap {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+}
+
+.tech-icon {
+  display: block;
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+}
+
+.tech-name {
+  max-width: 76px;
+  line-height: 1.15;
+  color: rgba(255, 255, 255, .94);
+}
+
+.knowledge ul {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: .5rem;
+  margin: 0;
+  padding-left: 1.15rem;
+  font-size: .8rem;
+}
+
+.languages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+.languages li::before {
+  content: '✓';
+  display: inline-block;
+  margin-right: .45rem;
+  font-size: .72rem;
+}
+
+@media (min-width: 768px) {
+  .skills {
+    grid-template-columns: 1fr 1fr;
+  }
+}

@@ -1,0 +1,99 @@
+PORTFÓLIO PROFISSIONAL — DIEGO DE MELO
+
+Arquivo: docs/ESTADO_ATUAL.txt
+Versão: 0.3.0
+Status: CANDIDATO DE BASELINE GIT/GITHUB — REVALIDAÇÃO FINAL
+
+1. ESTADO REAL
+
+- Projeto estático em HTML, CSS e JavaScript.
+- Dados profissionais mantidos em data/profile.json.
+- Conteúdo carregado via Fetch API.
+- Design baseado nas capturas fornecidas do Figma.
+- Ordem visual: Skills, Idiomas, Educação, Portfólio, Experiência Profissional.
+- Apenas um acordeão aberto por vez.
+- Painéis fechados colapsam totalmente, sem altura residual.
+- Skills principais possuem ícones SVG locais.
+- Idiomas declarados: Português (BR) e Inglês — Básico.
+- GitHub e LinkedIn oficiais presentes no cabeçalho.
+- Projetos destacados vinculados a repositórios públicos verificáveis.
+
+2. PUBLICAÇÃO OPERACIONAL DE LABORATÓRIO
+
+Diretório:
+/srv/apps/portfolio-diego-de-melo
+
+Tipo:
+Site estático puro.
+
+Servidor:
+Nginx compartilhado.
+
+Rota:
+https://server.tail720a58.ts.net/portfolio/
+
+Exposição:
+Pública via Tailscale Funnel.
+
+Backend:
+Não existe.
+
+Banco:
+Não existe.
+
+Processo persistente:
+Não existe.
+
+3. QA EXECUTADO
+
+- JSON: validado.
+- JavaScript: sintaxe validada.
+- HTML e referências locais: validados nas fases anteriores.
+- Nginx: nginx -t aprovado.
+- HTTP local: aprovado.
+- HTTPS via Tailscale Funnel: aprovado.
+- CSS, JavaScript, JSON e SVGs: respostas HTTP 200.
+- Homologação visual em navegador real executada.
+- Ajuste posterior de altura dos acordeões implementado.
+- Ícones de Skills implementados localmente.
+- Inglês — Básico incluído nos dados declarados.
+
+4. GIT / GITHUB
+
+Repositório GitHub:
+diegodemelo/portfolio-diego-de-melo
+
+Visibilidade:
+Público.
+
+Branch:
+main.
+
+Git local:
+Inicializado em /srv/apps/portfolio-diego-de-melo.
+
+Estado:
+Arquivos preparados para primeiro commit; commit e push ainda não executados.
+
+Identidade Git:
+Configurada somente neste repositório.
+
+5. HISTÓRICO PRESERVADO
+
+- docs/QA_FASE_1.txt permanece como evidência histórica.
+- docs/QA_FASE_2_VISUAL.txt permanece como evidência histórica.
+- docs/MANIFEST_SHA256_v0.2.0.txt permanece como manifesto histórico.
+- Não reescrever documentos históricos para representar o estado atual.
+
+6. PENDÊNCIAS
+
+- Revalidar tecnicamente o candidato v0.3.0.
+- Confirmar visualmente os últimos ajustes no navegador.
+- Criar primeiro commit.
+- Publicar branch main no GitHub.
+- Confirmar GitHub e servidor no mesmo commit.
+- Registrar QA operacional do commit publicado.
+
+7. PRÓXIMA AÇÃO
+
+Revalidar o candidato v0.3.0 e, após aprovação, selar o primeiro commit e publicar no GitHub.

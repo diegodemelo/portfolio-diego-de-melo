@@ -1,0 +1,26 @@
+PORTFÓLIO PROFISSIONAL — DIEGO DE MELO
+Relatório: QA FASE 1
+Resultado: APROVADO COM RESSALVAS
+
+CRITÉRIOS / EVIDÊNCIAS
+[X] JSON válido — python3 -m json.tool data/profile.json.
+[X] JavaScript sem erro de sintaxe — node --check em accordion.js, api.js e main.js.
+[X] HTML parseável — validação com HTMLParser.
+[X] Arquivos CSS/JS/assets referenciados existem — varredura de href/src sem ausências.
+[X] Servidor HTTP local responde 200 para index e profile.json — validado com curl.
+[X] Conteúdo profissional não contém experiência/idiomas inventados.
+[X] Links GitHub/LinkedIn correspondem aos perfis validados.
+[X] Varredura simples não encontrou segredo, token, senha ou chave privada.
+[X] Telefone/e-mail não foram publicados nesta versão.
+[ ] QA visual automatizado — BLOQUEADO PELO AMBIENTE DE FERRAMENTA.
+[ ] Comparação pixel a pixel com o Figma — BLOQUEADA POR PERMISSÃO DE ACESSO AO ARQUIVO.
+[ ] QA visual manual em navegador/dispositivo real — PENDENTE.
+
+FALHA DE FERRAMENTA / AMBIENTE
+- Chromium headless não concluiu captura por limitações DBus/exec do ambiente.
+- Playwright foi bloqueado ao acessar localhost com ERR_BLOCKED_BY_ADMINISTRATOR.
+- Essas falhas não alteraram os arquivos do projeto.
+
+CONCLUSÃO
+APROVADO COM RESSALVAS.
+Os critérios técnicos estáticos e HTTP da Fase 1 foram atendidos. A aprovação visual final depende de inspeção em navegador real e, idealmente, de acesso ao Figma original.

@@ -1,0 +1,34 @@
+PORTFÓLIO PROFISSIONAL — DIEGO DE MELO
+Documento: ESCOPO
+Status: IMPLEMENTADO — Fase 1
+
+1. OBJETIVO
+Criar uma página de portfólio profissional baseada no desafio da DIO, utilizando HTML, CSS e JavaScript puro e dados profissionais verificáveis do GitHub/LinkedIn.
+
+2. DENTRO DO ESCOPO
+- apresentação profissional;
+- skills técnicas;
+- formação sustentada por fonte pública;
+- projetos em destaque;
+- GitHub e LinkedIn;
+- acordeões interativos;
+- responsividade;
+- carregamento de conteúdo por JSON;
+- acessibilidade básica.
+
+3. FORA DO ESCOPO NESTA VERSÃO
+- backend;
+- banco de dados;
+- autenticação;
+- formulário de contato;
+- dados de telefone;
+- idiomas sem fonte verificável;
+- experiência profissional não sustentada pelas fontes consultadas;
+- deploy.
+
+4. STACK
+HTML5 + CSS3 + JavaScript + Git/GitHub.
+
+5. CLASSIFICAÇÃO
+Nível 1 — projeto pequeno.
+Risco: baixo.

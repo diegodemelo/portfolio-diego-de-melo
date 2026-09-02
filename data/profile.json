@@ -1,0 +1,104 @@
+{
+  "name": "Diego de Melo",
+  "photo": "https://avatars.githubusercontent.com/u/246743061?v=4",
+  "job": "Desenvolvedor Full Stack Júnior",
+  "summary": "Desenvolvedor focado na construção de aplicações web, com conhecimentos em desenvolvimento front-end, back-end, APIs e bancos de dados.",
+  "social": {
+    "github": "https://github.com/diegodemelo",
+    "linkedin": "https://www.linkedin.com/in/diegodemelodev/"
+  },
+  "skills": {
+    "hardSkills": [
+      {
+        "name": "JavaScript",
+        "icon": "assets/img/skills/javascript.svg"
+      },
+      {
+        "name": "TypeScript",
+        "icon": "assets/img/skills/typescript.svg"
+      },
+      {
+        "name": "React",
+        "icon": "assets/img/skills/react.svg"
+      },
+      {
+        "name": "Node.js",
+        "icon": "assets/img/skills/nodejs.svg"
+      },
+      {
+        "name": "PostgreSQL",
+        "icon": "assets/img/skills/postgresql.svg"
+      },
+      {
+        "name": "Git",
+        "icon": "assets/img/skills/git.svg"
+      },
+      {
+        "name": "HTML5",
+        "icon": "assets/img/skills/html5.svg"
+      },
+      {
+        "name": "CSS3",
+        "icon": "assets/img/skills/css3.svg"
+      }
+    ],
+    "knowledge": [
+      "Next.js e aplicações React",
+      "APIs Web e integração de dados",
+      "Responsive Web Design",
+      "Flexbox e CSS Grid",
+      "Arquitetura de aplicações",
+      "IA Generativa aplicada ao desenvolvimento"
+    ]
+  },
+  "languages": ["Português (BR)", "Inglês — Básico"],
+  "education": [
+    {
+      "name": "Programador Full Stack — SENAC-RN",
+      "period": "Formação profissional",
+      "description": "Desenvolvimento web com front-end, back-end, banco de dados, serviços web, publicação de aplicações e projeto integrador."
+    },
+    {
+      "name": "Formação complementar — DIO",
+      "period": "Estudos contínuos",
+      "description": "JavaScript, React, Node.js, HTML, CSS, Git/GitHub e Inteligência Artificial aplicada ao desenvolvimento."
+    }
+  ],
+  "portfolio": [
+    {
+      "name": "OpinaAi Core — Projeto Integrador SENAC",
+      "description": "Avaliação de eventos com APIs, regras de negócio e PostgreSQL.",
+      "stack": ["Next.js", "React", "TypeScript", "PostgreSQL"],
+      "url": "https://github.com/diegodemelo/opinaai-core"
+    },
+    {
+      "name": "ChatGPT Clone — IA local",
+      "description": "Aplicação full stack com React, Express, streaming SSE e Ollama.",
+      "stack": ["React", "Vite", "Node.js", "Express", "Ollama"],
+      "url": "https://github.com/diegodemelo/chatgpt-clone-openai"
+    },
+    {
+      "name": "Pokédex — JavaScript + PokéAPI",
+      "description": "Projeto responsivo em JavaScript puro consumindo a PokéAPI.",
+      "stack": ["HTML5", "CSS3", "JavaScript", "Fetch API"],
+      "url": "https://github.com/diegodemelo/dio-js-pokedex"
+    }
+  ],
+  "experience": [
+    {
+      "name": "Projetos Full Stack de portfólio",
+      "period": "Atual",
+      "description": "Construção e evolução de projetos web com front-end, back-end, APIs, banco de dados, arquitetura e QA documentado."
+    },
+    {
+      "name": "Projeto Integrador — SENAC-RN",
+      "period": "Formação Programador Full Stack",
+      "description": "Desenvolvimento do OpinaAi Core como aplicação integradora de competências da formação."
+    },
+    {
+      "name": "Projetos práticos — DIO",
+      "period": "Formação complementar",
+      "description": "Desafios de JavaScript, Node.js, HTML e CSS utilizados como evidência prática de aprendizado."
+    }
+  ]
+}

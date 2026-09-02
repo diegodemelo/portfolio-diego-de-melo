@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfólio profissional de Diego de Melo, Desenvolvedor Full Stack Júnior.">
+  <title>Diego de Melo | Desenvolvedor Full Stack Júnior</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/accordion.css">
+  <link rel="stylesheet" href="assets/css/skills.css">
+  <link rel="stylesheet" href="assets/css/timeline.css">
+  <link rel="stylesheet" href="assets/css/portfolio.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+</head>
+<body>
+  <main class="main" id="conteudo-principal">
+    <header class="header">
+      <img
+        class="photo"
+        id="profile.photo"
+        src="https://avatars.githubusercontent.com/u/246743061?v=4"
+        alt="Foto de perfil de Diego de Melo"
+        width="200"
+        height="200"
+      >
+
+      <div class="headline">
+        <h1 class="title">Olá,<br>eu sou o<br><span id="profile.name">Diego de Melo</span></h1>
+      </div>
+
+      <div class="information" aria-label="Informações profissionais">
+        <p class="info-item job"><span id="profile.job">Desenvolvedor Full Stack Júnior</span></p>
+        <p class="info-item github"><a id="profile.github" href="https://github.com/diegodemelo" target="_blank" rel="noopener noreferrer">github.com/diegodemelo</a></p>
+        <p class="info-item linkedin"><a id="profile.linkedin" href="https://www.linkedin.com/in/diegodemelodev/" target="_blank" rel="noopener noreferrer">linkedin.com/in/diegodemelodev</a></p>
+      </div>
+    </header>
+
+    <div class="accordion-list">
+      <section class="accordion">
+        <h2 class="accordion-heading">
+          <button class="trigger" type="button" aria-expanded="false">
+            <span>Skills</span>
+            <span class="chevron" aria-hidden="true"></span>
+          </button>
+        </h2>
+        <div class="content">
+          <div class="skills">
+            <section class="tools" aria-labelledby="tools-title">
+              <h3 id="tools-title">Habilidades profissionais:</h3>
+              <ul class="skill-grid" id="profile.skills.hardSkills"></ul>
+            </section>
+            <section class="knowledge" aria-labelledby="knowledge-title">
+              <h3 id="knowledge-title">Conhecimentos:</h3>
+              <ul id="profile.skills.knowledge"></ul>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section class="accordion">
+        <h2 class="accordion-heading">
+          <button class="trigger" type="button" aria-expanded="false">
+            <span>Idiomas</span>
+            <span class="chevron" aria-hidden="true"></span>
+          </button>
+        </h2>
+        <div class="content">
+          <ul class="languages" id="profile.languages"></ul>
+        </div>
+      </section>
+
+      <section class="accordion">
+        <h2 class="accordion-heading">
+          <button class="trigger" type="button" aria-expanded="false">
+            <span>Educação</span>
+            <span class="chevron" aria-hidden="true"></span>
+          </button>
+        </h2>
+        <div class="content">
+          <div class="education-intro">Formação e estudos</div>
+          <ul class="timeline education" id="profile.education"></ul>
+        </div>
+      </section>
+
+      <section class="accordion">
+        <h2 class="accordion-heading">
+          <button class="trigger" type="button" aria-expanded="false">
+            <span>Portfólio</span>
+            <span class="chevron" aria-hidden="true"></span>
+          </button>
+        </h2>
+        <div class="content">
+          <ul class="portfolio" id="profile.portfolio"></ul>
+          <p class="portfolio-more"><a href="https://github.com/diegodemelo" target="_blank" rel="noopener noreferrer">Ver outros projetos no GitHub</a></p>
+        </div>
+      </section>
+
+      <section class="accordion">
+        <h2 class="accordion-heading">
+          <button class="trigger" type="button" aria-expanded="false">
+            <span>Experiência Profissional</span>
+            <span class="chevron" aria-hidden="true"></span>
+          </button>
+        </h2>
+        <div class="content">
+          <p class="experience-note">Experiência prática e formação verificável pelas fontes públicas consultadas.</p>
+          <ul class="timeline experience" id="profile.experience"></ul>
+          <p class="experience-link"><a href="https://www.linkedin.com/in/diegodemelodev/" target="_blank" rel="noopener noreferrer">Perfil profissional no LinkedIn</a></p>
+        </div>
+      </section>
+    </div>
+
+    <footer class="footer">
+      <a href="https://www.dio.me/" target="_blank" rel="noopener noreferrer" aria-label="Acessar site da DIO">
+        <img src="assets/img/dio.svg" alt="DIO" width="98" height="40">
+      </a>
+    </footer>
+  </main>
+
+  <script src="assets/js/accordion.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

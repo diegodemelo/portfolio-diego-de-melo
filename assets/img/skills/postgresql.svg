@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="PostgreSQL">
+  <circle cx="64" cy="64" r="57" fill="#336791"/>
+  <path d="M42 39c8-12 37-13 45 1 7 13 4 39-7 50-7 7-17 9-22 1-4-6-2-17 2-22-9-2-17-7-20-15-2-5-1-11 2-15Z" fill="#FFFFFF" opacity=".96"/>
+  <circle cx="76" cy="49" r="3.5" fill="#336791"/>
+  <path d="M61 72c7 2 13 1 18-3" fill="none" stroke="#336791" stroke-width="4" stroke-linecap="round"/>
+</svg>
