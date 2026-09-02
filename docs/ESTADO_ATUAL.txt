@@ -1,8 +1,8 @@
 PORTFÓLIO PROFISSIONAL — DIEGO DE MELO
 
 Arquivo: docs/ESTADO_ATUAL.txt
-Versão: 0.3.0
-Status: CANDIDATO DE BASELINE GIT/GITHUB — REVALIDAÇÃO FINAL
+Release atual: v0.3.0
+Status: PUBLICADO / HOMOLOGADO
 
 1. ESTADO REAL
 
@@ -10,15 +10,22 @@ Status: CANDIDATO DE BASELINE GIT/GITHUB — REVALIDAÇÃO FINAL
 - Dados profissionais mantidos em data/profile.json.
 - Conteúdo carregado via Fetch API.
 - Design baseado nas capturas fornecidas do Figma.
-- Ordem visual: Skills, Idiomas, Educação, Portfólio, Experiência Profissional.
-- Apenas um acordeão aberto por vez.
-- Painéis fechados colapsam totalmente, sem altura residual.
+- Ordem visual:
+  Skills;
+  Idiomas;
+  Educação;
+  Portfólio;
+  Experiência Profissional.
+- Apenas um acordeão permanece aberto por vez.
+- Painéis fechados colapsam totalmente.
 - Skills principais possuem ícones SVG locais.
-- Idiomas declarados: Português (BR) e Inglês — Básico.
-- GitHub e LinkedIn oficiais presentes no cabeçalho.
-- Projetos destacados vinculados a repositórios públicos verificáveis.
+- Idiomas declarados:
+  Português (BR);
+  Inglês — Básico.
+- GitHub e LinkedIn oficiais presentes no portfólio.
+- Projetos destacados vinculados a fontes públicas verificáveis.
 
-2. PUBLICAÇÃO OPERACIONAL DE LABORATÓRIO
+2. PUBLICAÇÃO OPERACIONAL
 
 Diretório:
 /srv/apps/portfolio-diego-de-melo
@@ -26,10 +33,10 @@ Diretório:
 Tipo:
 Site estático puro.
 
-Servidor:
+Servidor web:
 Nginx compartilhado.
 
-Rota:
+URL:
 https://server.tail720a58.ts.net/portfolio/
 
 Exposição:
@@ -41,59 +48,103 @@ Não existe.
 Banco:
 Não existe.
 
-Processo persistente:
+Processo persistente dedicado:
 Não existe.
 
-3. QA EXECUTADO
+3. QA
 
-- JSON: validado.
-- JavaScript: sintaxe validada.
-- HTML e referências locais: validados nas fases anteriores.
-- Nginx: nginx -t aprovado.
-- HTTP local: aprovado.
-- HTTPS via Tailscale Funnel: aprovado.
-- CSS, JavaScript, JSON e SVGs: respostas HTTP 200.
-- Homologação visual em navegador real executada.
-- Ajuste posterior de altura dos acordeões implementado.
-- Ícones de Skills implementados localmente.
-- Inglês — Básico incluído nos dados declarados.
+Estado:
+APROVADO.
+
+Evidências executadas:
+- JSON validado.
+- JavaScript validado.
+- HTML e referências locais validados.
+- Nginx validado.
+- HTTP local aprovado.
+- HTTPS via Tailscale Funnel aprovado.
+- CSS, JavaScript, JSON e SVGs responderam HTTP 200.
+- Homologação visual executada em navegador real.
+- Acordeões revalidados após correção de altura.
+- Ícones de Skills revalidados.
+- Inglês — Básico incluído e validado.
 
 4. GIT / GITHUB
 
-Repositório GitHub:
-diegodemelo/portfolio-diego-de-melo
+Repositório:
+https://github.com/diegodemelo/portfolio-diego-de-melo
 
 Visibilidade:
 Público.
 
-Branch:
+Branch principal:
 main.
 
-Git local:
-Inicializado em /srv/apps/portfolio-diego-de-melo.
+Release:
+v0.3.0.
+
+Commit da release:
+8dc32c364ae339e84424bfd899f1f294c6c7d4bb
+
+Mensagem:
+feat: publica portfolio profissional v0.3.0
 
 Estado:
-Arquivos preparados para primeiro commit; commit e push ainda não executados.
+PUBLICADO.
 
-Identidade Git:
-Configurada somente neste repositório.
+A tag v0.3.0 permanece apontando para o commit imutável da release:
+8dc32c364ae339e84424bfd899f1f294c6c7d4bb.
 
-5. HISTÓRICO PRESERVADO
+A branch main pode avançar posteriormente com commits documentais ou
+novas evoluções, sem alterar retroativamente a tag v0.3.0.
 
-- docs/QA_FASE_1.txt permanece como evidência histórica.
-- docs/QA_FASE_2_VISUAL.txt permanece como evidência histórica.
-- docs/MANIFEST_SHA256_v0.2.0.txt permanece como manifesto histórico.
-- Não reescrever documentos históricos para representar o estado atual.
+Remote local:
+HTTPS.
 
-6. PENDÊNCIAS
+Método SSH:
+Não utilizado.
 
-- Revalidar tecnicamente o candidato v0.3.0.
-- Confirmar visualmente os últimos ajustes no navegador.
-- Criar primeiro commit.
-- Publicar branch main no GitHub.
-- Confirmar GitHub e servidor no mesmo commit.
-- Registrar QA operacional do commit publicado.
+A chave SSH dedicada criada durante o diagnóstico foi removida
+após decisão de utilizar HTTPS.
 
-7. PRÓXIMA AÇÃO
+5. MANIFESTO DA RELEASE
 
-Revalidar o candidato v0.3.0 e, após aprovação, selar o primeiro commit e publicar no GitHub.
+Arquivo:
+docs/MANIFEST_SHA256_v0.3.0.txt
+
+O manifesto representa exatamente o conteúdo selado na release
+v0.3.0 e deve permanecer imutável como evidência histórica.
+
+Alterações documentais posteriores à release não alteram
+retroativamente esse manifesto.
+
+6. HISTÓRICO PRESERVADO
+
+- docs/QA_FASE_1.txt
+- docs/QA_FASE_2_VISUAL.txt
+- docs/MANIFEST_SHA256_v0.2.0.txt
+- docs/MANIFEST_SHA256_v0.3.0.txt
+
+HISTÓRICO não deve ser reescrito para representar o Estado Atual.
+
+7. INFRAESTRUTURA
+
+O portfólio não criou:
+- nova porta;
+- novo serviço systemd;
+- container Docker;
+- banco;
+- usuário de banco;
+- processo Node.js persistente.
+
+A publicação reutiliza o gateway Nginx existente.
+
+Pendências de infraestrutura já identificadas em outras frentes
+permanecem fora do escopo deste projeto.
+
+8. PRÓXIMAS ALTERAÇÕES
+
+Qualquer evolução funcional deverá partir da branch main,
+ser validada antes da publicação e gerar novo commit rastreável.
+
+A release v0.3.0 permanece o baseline inicial homologado.

@@ -6,11 +6,11 @@ A implementação utiliza o design de referência fornecido no Figma e foi perso
 
 ## Status
 
-**v0.3.0 — candidato de baseline Git/GitHub após homologação no servidor.**
+**v0.3.0 — publicada, homologada e versionada no GitHub.**
 
-Estado do QA: **EM REVALIDAÇÃO FINAL PARA BASELINE GIT/GITHUB**.
+Estado do QA: **APROVADO**.
 
-A estrutura, dados, JavaScript e publicação HTTP/HTTPS foram validados. A página foi homologada visualmente em navegador real e recebeu ajustes posteriores nos acordeões, ícones de Skills e idiomas, que estão em revalidação final antes do primeiro commit.
+A estrutura, dados, JavaScript e publicação HTTP/HTTPS foram validados. A página foi homologada visualmente em navegador real após os ajustes nos acordeões, ícones de Skills e idiomas. A release v0.3.0 está publicada no GitHub.
 
 ## Stack real
 
