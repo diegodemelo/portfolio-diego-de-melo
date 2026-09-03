@@ -11,7 +11,7 @@ desafio e foi personalizada com dados profissionais e projetos reais.
 
 **Portfólio publicado:**
 
-https://server.tail720a58.ts.net/portfolio/
+(https://diegodemelo.github.io/portfolio-diego-de-melo/)
 
 A URL atual utiliza o ambiente operacional de laboratório do projeto.
 
