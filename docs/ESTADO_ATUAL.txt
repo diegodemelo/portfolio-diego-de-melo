@@ -148,3 +148,43 @@ Qualquer evolução funcional deverá partir da branch main,
 ser validada antes da publicação e gerar novo commit rastreável.
 
 A release v0.3.0 permanece o baseline inicial homologado.
+
+============================================================
+HARDENING OPERACIONAL — 2026-09-02
+============================================================
+
+Foi identificado e corrigido acesso público indevido ao diretório
+.git do checkout utilizado pelo Nginx.
+
+ANTES:
+- /portfolio/.git/HEAD -> HTTP 200.
+
+CORREÇÃO:
+- bloqueio exato de /portfolio/.git;
+- bloqueio de /portfolio/.git/ e descendentes;
+- configuração validada com nginx -t;
+- Nginx recarregado sem regressão.
+
+DEPOIS:
+- .git -> 404;
+- .git/ -> 404;
+- .git/HEAD -> 404;
+- .git/config -> 404;
+- aplicação e assets principais -> 200.
+
+BACKUP:
+- /srv/backups/nginx-pre-git-hardening-20260902-213552.conf
+
+SHA-256 NGINX ANTES:
+- 131efe6fe1df97be516418b516eca2a25b7d469025989e2f4f3b521e02a2a14c
+
+SHA-256 NGINX DEPOIS:
+- cf5627266bfdf71308eef62dea8f1c26883a8859b88ea975f4030a69a3b1b4fb
+
+EVIDÊNCIA DETALHADA:
+- docs/QA_SEGURANCA_OPERACIONAL.txt
+
+STATUS:
+- QA DE SEGURANÇA OPERACIONAL: APROVADO.
+- exposição de .git: CORRIGIDA.
+============================================================

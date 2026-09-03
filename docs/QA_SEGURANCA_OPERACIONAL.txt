@@ -1,0 +1,159 @@
+QA DE SEGURANÇA OPERACIONAL — PORTFÓLIO DIEGO DE MELO
+
+Data: 2026-09-02
+Status final: APROVADO
+
+1. OBJETIVO
+
+Validar se metadados internos do repositório Git utilizado no servidor
+estavam acessíveis pela publicação HTTP/HTTPS do portfólio.
+
+2. DEFEITO IDENTIFICADO
+
+Foi confirmado acesso público indevido a:
+
+/portfolio/.git/HEAD
+
+Evidência inicial:
+
+HTTP 200
+Content-Type: application/octet-stream
+
+Classificação:
+
+DEFEITO REAL DE SEGURANÇA OPERACIONAL
+
+A aplicação permaneceu funcional. O defeito estava restrito à
+configuração de exposição de arquivos pelo Nginx.
+
+3. CAUSA TÉCNICA
+
+O projeto é servido através de:
+
+location ^~ /portfolio/ {
+    alias /srv/apps/portfolio-diego-de-melo/;
+    index index.html;
+}
+
+Como o repositório Git local existe dentro desse diretório, o alias
+também permitia alcançar arquivos internos de .git.
+
+Os bloqueios existentes para .gitignore, README.md e docs/ não
+protegiam o diretório .git/.
+
+4. BACKUP
+
+Configuração:
+
+/etc/nginx/sites-available/rotapotiguar
+
+Backup realizado antes da alteração:
+
+/srv/backups/nginx-pre-git-hardening-20260902-213552.conf
+
+SHA-256 da configuração antes da alteração:
+
+131efe6fe1df97be516418b516eca2a25b7d469025989e2f4f3b521e02a2a14c
+
+O backup foi comparado com o arquivo original e confirmado como
+idêntico antes da alteração.
+
+5. CORREÇÃO APLICADA
+
+Foram adicionados os seguintes bloqueios antes do alias principal
+do portfólio:
+
+location = /portfolio/.git {
+    return 404;
+}
+
+location ^~ /portfolio/.git/ {
+    return 404;
+}
+
+A alteração foi limitada à configuração Nginx do portfólio.
+
+6. VALIDAÇÃO DA CONFIGURAÇÃO
+
+nginx -t:
+
+APROVADO
+
+Serviço nginx após reload:
+
+ATIVO
+
+Configuração efetiva confirmada por nginx -T.
+
+Não foram encontradas rotas duplicadas do portfólio além da entrada
+habilitada e seu arquivo de origem correspondente.
+
+7. QA DE SEGURANÇA FINAL
+
+Resultados locais no Nginx:
+
+/portfolio/.git          -> 404
+/portfolio/.git/         -> 404
+/portfolio/.git/HEAD     -> 404
+/portfolio/.git/config   -> 404
+
+Resultados públicos pelo Tailscale Funnel:
+
+/portfolio/.git          -> 404
+/portfolio/.git/         -> 404
+/portfolio/.git/HEAD     -> 404
+/portfolio/.git/config   -> 404
+
+Tailscale Funnel confirmado:
+
+https://server.tail720a58.ts.net
+-> proxy http://127.0.0.1:80
+
+8. QA DE NÃO REGRESSÃO
+
+/portfolio/                              -> 200
+/portfolio/assets/css/global.css         -> 200
+/portfolio/assets/js/main.js             -> 200
+/portfolio/data/profile.json             -> 200
+
+Proteções anteriores preservadas:
+
+/portfolio/.gitignore                    -> 404
+/portfolio/README.md                     -> 404
+/portfolio/docs/ESTADO_ATUAL.txt         -> 404
+
+9. OBSERVAÇÃO SOBRE O PRIMEIRO TESTE PÓS-RELOAD
+
+Imediatamente após o primeiro reload foi observada uma resposta
+inconsistente, incluindo HTTP 200 para .git/HEAD.
+
+O diagnóstico subsequente confirmou simultaneamente:
+
+- configuração efetiva correta no nginx -T;
+- workers recarregados;
+- resposta local 404;
+- resposta pública 404;
+- Funnel apontando para o Nginx local.
+
+A causa da resposta transitória não foi comprovada.
+
+Classificação:
+
+ANOMALIA TRANSITÓRIA NÃO REPRODUZIDA
+
+Nenhuma hipótese foi registrada como fato.
+
+10. HASH DA CONFIGURAÇÃO APÓS HARDENING
+
+cf5627266bfdf71308eef62dea8f1c26883a8859b88ea975f4030a69a3b1b4fb
+
+Arquivo:
+
+/etc/nginx/sites-available/rotapotiguar
+
+11. RESULTADO
+
+QA DE SEGURANÇA OPERACIONAL: APROVADO
+
+A exposição pública dos metadados Git foi eliminada e não foi
+detectada regressão funcional no portfólio.
