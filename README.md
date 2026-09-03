@@ -1,68 +1,106 @@
 # Portfólio Profissional — Diego de Melo
 
-Projeto de estudo desenvolvido a partir do desafio **Criando e Estilizando uma Página de Portfólio Profissional com CSS e JavaScript**, da DIO.
+Portfólio profissional desenvolvido com **HTML, CSS e JavaScript puro**
+a partir do desafio **Criando e Estilizando uma Página de Portfólio
+Profissional com CSS e JavaScript**, da DIO.
 
-A implementação utiliza o design de referência fornecido no Figma e foi personalizada com dados profissionais verificáveis do GitHub e com o LinkedIn oficial informado pelo responsável.
+A interface utiliza como referência o material visual fornecido no
+desafio e foi personalizada com dados profissionais e projetos reais.
+
+## Demo
+
+**Portfólio publicado:**
+
+https://server.tail720a58.ts.net/portfolio/
+
+A URL atual utiliza o ambiente operacional de laboratório do projeto.
 
 ## Status
 
-**v0.3.0 — publicada, homologada e versionada no GitHub.**
+**Release funcional atual: `v0.3.0`**
 
 Estado do QA: **APROVADO**.
 
-A estrutura, dados, JavaScript e publicação HTTP/HTTPS foram validados. A página foi homologada visualmente em navegador real após os ajustes nos acordeões, ícones de Skills e idiomas. A release v0.3.0 está publicada no GitHub.
+A release `v0.3.0` foi homologada em navegador real e permanece
+preservada pela tag Git correspondente.
 
-## Stack real
+A branch `main` pode conter commits documentais posteriores sem alterar
+retroativamente a release homologada.
+
+## Stack
 
 - HTML5
 - CSS3
 - JavaScript
 - JSON
 - Fetch API
-- Git/GitHub como fluxo previsto de versionamento
+- Git
+- GitHub
 
-Não há backend, banco de dados, autenticação, Docker ou framework JavaScript neste projeto.
+O projeto não utiliza framework JavaScript, backend, banco de dados,
+autenticação ou processo Node.js persistente.
 
-## Design
+## Destaques técnicos
 
-A versão 0.3.0 consolida a implementação baseada nas capturas fornecidas do Figma:
+- layout responsivo;
+- interface baseada no design de referência da DIO/Figma;
+- acordeões acessíveis por botão e `aria-expanded`;
+- apenas um painel aberto por vez;
+- carregamento de dados profissionais por JSON;
+- separação entre dados e renderização;
+- Skills com SVGs locais;
+- suporte a `prefers-reduced-motion`;
+- links externos protegidos com `noopener noreferrer`;
+- QA técnico e visual documentado;
+- manifests SHA-256 das versões homologadas;
+- versionamento por branch, commit e tag.
 
-- fundo preto com iluminação/gradientes rosa, roxo e azul;
-- moldura principal transparente com borda clara e cantos arredondados;
-- foto circular e apresentação em duas colunas no desktop;
-- três pontos decorativos no cabeçalho;
-- acordeões na ordem: Skills, Idiomas, Educação, Portfólio e Experiência Profissional;
-- estado aberto em `#55569E`;
-- apenas um acordeão aberto por vez;
-- painéis fechados totalmente recolhidos, sem altura residual;
-- ícones locais das principais tecnologias na seção Skills;
-- logotipo da DIO alinhado à direita no rodapé;
-- conteúdo compacto e responsivo.
+## Conteúdo do portfólio
 
-O contorno azul/ciano visível em algumas capturas é o realce de seleção do Figma e **não faz parte da interface publicada**.
+A página apresenta:
 
-A fonte específica usada no material de referência não é empacotada no projeto. A interface utiliza Open Sans e Space Grotesk por carregamento web como aproximação tipográfica.
-
-## Dados profissionais
-
-Fontes utilizadas:
-
-- GitHub: `https://github.com/diegodemelo`
-- LinkedIn oficial: `https://www.linkedin.com/in/diegodemelodev/`
-
-O conteúdo não inventa vínculos profissionais, idiomas ou competências sem base disponível. A seção “Experiência Profissional” apresenta experiência prática/formação verificável e direciona ao LinkedIn para o histórico profissional completo.
+- Skills técnicas;
+- conhecimentos;
+- idiomas;
+- formação;
+- projetos em destaque;
+- experiência prática;
+- GitHub;
+- LinkedIn.
 
 ## Projetos destacados
 
-- OpinaAi Core — Projeto Integrador SENAC
-- ChatGPT Clone — IA local
-- Pokédex — JavaScript + PokéAPI
+### OpinaAi Core — Projeto Integrador SENAC
 
-Outros projetos permanecem disponíveis diretamente no GitHub.
+Aplicação de avaliação de eventos com APIs, regras de negócio e
+PostgreSQL.
+
+Repositório:
+
+https://github.com/diegodemelo/opinaai-core
+
+### ChatGPT Clone — IA local
+
+Aplicação full stack com React, Vite, Node.js, Express, streaming SSE
+e Ollama.
+
+Repositório:
+
+https://github.com/diegodemelo/chatgpt-clone-openai
+
+### Pokédex — JavaScript + PokéAPI
+
+Projeto responsivo desenvolvido em JavaScript puro consumindo a
+PokéAPI.
+
+Repositório:
+
+https://github.com/diegodemelo/dio-js-pokedex
 
 ## Executar localmente
 
-Como o conteúdo é carregado com `fetch`, execute por um servidor HTTP local.
+Como os dados são carregados por `fetch`, execute o projeto através
+de um servidor HTTP.
 
 ```bash
 python3 -m http.server 8000
@@ -78,6 +116,8 @@ http://127.0.0.1:8000/
 
 ```text
 portfolio-diego-de-melo/
+├── .github/
+│   └── workflows/
 ├── assets/
 │   ├── css/
 │   ├── img/
@@ -90,6 +130,72 @@ portfolio-diego-de-melo/
 └── README.md
 ```
 
+## Qualidade e QA
+
+O projeto possui validações para:
+
+- sintaxe JavaScript;
+- validade do JSON;
+- referências locais do HTML;
+- atributos básicos de acessibilidade;
+- existência dos assets das Skills;
+- URLs dos projetos;
+- detecção básica de chave privada;
+- integridade histórica por manifests SHA-256.
+
+A documentação completa de QA está em:
+
+`docs/`
+
+Consulte primeiro:
+
+`docs/ESTADO_ATUAL.txt`
+
+## Dados profissionais
+
+Fontes públicas utilizadas pelo portfólio:
+
+- GitHub: https://github.com/diegodemelo
+- LinkedIn: https://www.linkedin.com/in/diegodemelodev/
+
+O projeto evita publicar telefone, e-mail ou credenciais privadas.
+
+## Design
+
+A implementação mantém os principais elementos visuais do desafio:
+
+- fundo preto com gradientes coloridos;
+- moldura transparente;
+- foto circular;
+- apresentação em duas colunas no desktop;
+- acordeões com estado ativo;
+- ícones de tecnologias;
+- logotipo da DIO no rodapé.
+
+Open Sans e Space Grotesk são carregadas pela web como aproximação
+tipográfica ao material de referência.
+
 ## Contexto educacional
 
-Este repositório é uma personalização de um projeto de estudo da DIO. O objetivo é demonstrar HTML, CSS, JavaScript, manipulação do DOM, carregamento de JSON, responsividade, acessibilidade básica e organização de código.
+Este repositório é uma personalização de um projeto de estudo da DIO.
+
+Seu objetivo é demonstrar, de forma prática:
+
+- HTML semântico;
+- CSS responsivo;
+- JavaScript;
+- manipulação do DOM;
+- Fetch API;
+- organização de código;
+- acessibilidade básica;
+- Git/GitHub;
+- QA e documentação de software.
+
+## Licenciamento e créditos
+
+O repositório contém elementos relacionados ao desafio educacional da
+DIO e assets de tecnologias.
+
+Uma licença global para todo o conteúdo ainda não foi definida.
+Antes de reutilizar elementos visuais ou assets de terceiros, verifique
+as respectivas condições de uso.

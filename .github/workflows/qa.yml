@@ -1,0 +1,195 @@
+name: QA estático
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validar portfólio
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validar JSON
+        run: python3 -m json.tool data/profile.json >/dev/null
+
+      - name: Validar JavaScript
+        run: |
+          node --check assets/js/accordion.js
+          node --check assets/js/api.js
+          node --check assets/js/main.js
+
+      - name: Validar HTML e referências locais
+        run: |
+          python3 - <<'PY'
+          from collections import Counter
+          from html.parser import HTMLParser
+          from pathlib import Path
+          from urllib.parse import unquote, urlsplit
+
+          root = Path.cwd().resolve()
+          html_file = root / "index.html"
+
+          class Validator(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.ids = []
+                  self.refs = []
+                  self.errors = []
+
+              def handle_starttag(self, tag, attrs):
+                  attrs = dict(attrs)
+
+                  element_id = attrs.get("id")
+                  if element_id:
+                      self.ids.append(element_id)
+
+                  for attr in ("href", "src"):
+                      value = attrs.get(attr)
+                      if value:
+                          self.refs.append(value)
+
+                  if tag == "img" and "alt" not in attrs:
+                      self.errors.append(
+                          f"Imagem sem alt: {attrs.get('src', '<sem src>')}"
+                      )
+
+                  if tag == "button":
+                      classes = attrs.get("class", "").split()
+                      if "trigger" in classes and "aria-expanded" not in attrs:
+                          self.errors.append(
+                              "Trigger de acordeão sem aria-expanded."
+                          )
+
+          parser = Validator()
+          parser.feed(html_file.read_text(encoding="utf-8"))
+
+          duplicates = [
+              element_id
+              for element_id, count in Counter(parser.ids).items()
+              if count > 1
+          ]
+
+          if duplicates:
+              parser.errors.append(
+                  "IDs duplicados: " + ", ".join(sorted(duplicates))
+              )
+
+          ignored = (
+              "http://",
+              "https://",
+              "mailto:",
+              "tel:",
+              "data:",
+              "javascript:",
+              "#",
+          )
+
+          for ref in parser.refs:
+              if ref.startswith(ignored):
+                  continue
+
+              path = urlsplit(ref).path
+              if not path:
+                  continue
+
+              local = (root / unquote(path.lstrip("/"))).resolve()
+
+              try:
+                  local.relative_to(root)
+              except ValueError:
+                  parser.errors.append(
+                      f"Referência fora do repositório: {ref}"
+                  )
+                  continue
+
+              if not local.exists():
+                  parser.errors.append(
+                      f"Referência local inexistente: {ref}"
+                  )
+
+          if parser.errors:
+              raise SystemExit(
+                  "\n".join(f"ERRO: {e}" for e in parser.errors)
+              )
+
+          print("HTML e referências locais: OK")
+          PY
+
+      - name: Validar Skills e projetos
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          from urllib.parse import urlparse
+
+          profile = json.loads(
+              Path("data/profile.json").read_text(encoding="utf-8")
+          )
+
+          errors = []
+
+          for skill in profile.get("skills", {}).get("hardSkills", []):
+              name = skill.get("name")
+              icon = skill.get("icon")
+
+              if not name:
+                  errors.append("Skill sem nome.")
+
+              if not icon or not Path(icon).is_file():
+                  errors.append(
+                      f"Ícone inválido para skill: {name}"
+                  )
+
+          for project in profile.get("portfolio", []):
+              url = project.get("url", "")
+              parsed = urlparse(url)
+
+              if parsed.scheme != "https" or not parsed.netloc:
+                  errors.append(
+                      f"URL inválida: {project.get('name')}"
+                  )
+
+          if errors:
+              raise SystemExit(
+                  "\n".join(f"ERRO: {e}" for e in errors)
+              )
+
+          print("Skills e projetos: OK")
+          PY
+
+      - name: Detectar chave privada versionada
+        run: |
+          if grep -RInE \
+            --exclude-dir=.git \
+            'BEGIN (OPENSSH|RSA|EC|DSA) PRIVATE KEY' .; then
+            echo 'ERRO: possível chave privada versionada.'
+            exit 1
+          fi
+
+          echo 'Nenhuma chave privada detectada.'
+
+      - name: Verificar whitespace
+        run: git diff --check origin/main...HEAD
